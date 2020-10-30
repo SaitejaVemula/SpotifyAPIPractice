@@ -1,0 +1,307 @@
+// Colors
+$background-color: #F4F8FF;
+// $background-color: #e9edf5;
+$text-color: #2D394D;
+$btn-grad-1 : #61f09c;
+$btn-grad-2 : #26c052;
+$button-color: linear-gradient(to bottom right, $btn-grad-1, $btn-grad-2);
+
+
+// Reset Styles
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;   
+}
+
+html {
+    font-size: 62.5%;
+}
+
+// Typography
+h1    { font-size: 4.8rem; text-shadow: 0px 2px 4px rgba($text-color, 0.3); font-weight: 100;}
+h2    { font-size: 3rem; }
+h3, p, label { font-size: 1.8rem; }
+h4    { font-size: 1.4rem; }
+
+
+body {
+    background: $background-color;
+    color: $text-color;
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-size: 1.6rem;
+
+    display: grid;
+    grid-template-areas: 
+        'header'
+        'form'
+        'content'
+    ;
+    
+    @media screen and (min-width: 700px) {
+        // background: #000;
+        grid-template-areas: 
+            'header content content content'
+            'form content content content'
+            'form content content content'
+        ;
+    }
+}
+
+
+// Header
+header {
+    grid-area: header;
+    padding: 4rem;
+    animation: fadeLeft 0.5s ease-out 0.3s forwards;
+    animation-fill-mode: both;
+
+    * {
+        text-align: center;
+    }
+
+    h1 {
+        margin-bottom: 1rem;
+    }
+
+    @media screen and (min-width: 600px){
+        align-self: end;
+        justify-self: center;
+        max-width: 500px;
+        padding: 0;
+    }
+}
+
+@keyframes fadeLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    70% {
+        opacity: 0.7;
+        transform: translateX(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+// Form Style 
+form {
+
+    min-width: 30rem;
+    max-width: 60rem;
+    margin: 3rem auto;
+    grid-area: form;
+
+    @media screen and (min-width: 700px) {
+        margin: 0;
+        margin-top: 3rem;
+        max-width: 500px;
+        justify-self: center;
+    }
+
+    label {
+        display: block;
+        font-size: 2.6rem;
+        font-weight: 900;
+        text-shadow: 0 2px 5px rgba($text-color, 0.15);
+        text-align: center;
+    }
+
+    input {
+        display: block;
+        background: transparent;
+        width: 86%;
+        margin: 2rem auto;
+        font-size: 3rem;
+        font-weight: 100;
+        outline: none;
+        border: none;
+        padding: 1.2rem 4rem;
+        border-radius: 50px;
+        box-shadow: 10px 10px 20px -10px rgba(black, 0.1),
+                    -7px -7px 15px 0px rgba(white, 1),
+                    inset 2px 2px 4px rgba(black, 0.01);
+        transition: box-shadow 0.3s, padding 0.4s;
+
+        &::placeholder {
+            font-weight: 100;
+            color: rgba($text-color, 0.15);
+        }
+
+        &:focus, &:active {
+            box-shadow: 10px 10px 20px -5px rgba(black, 0.1),
+                        -7px -7px 15px 0px rgba(white, 1),
+                        inset 2px 2px 4px rgba(black, 0.01);
+        }
+
+        &[type=submit] {
+            background: $button-color;
+            cursor: pointer;
+            color: white;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-top: 3rem;
+            text-transform: uppercase;
+            text-shadow: 0 2px 4px rgba(black, 0.15);
+            box-shadow: 5px 5px 15px -5px rgba($btn-grad-2, 0.8),
+                        10px 10px 30px -15px rgba($btn-grad-2, 0.7),
+                        -7px -7px 15px 0px rgba($btn-grad-1, 0.15);
+            width: fit-content;
+
+            &:focus, &:hover, &:active {
+                padding: 1.2rem 5rem;
+                box-shadow: 5px 5px 15px -0px rgba($btn-grad-2, 0.8),
+                            10px 10px 30px -15px rgba($btn-grad-2, 0.9),
+                            -7px -7px 15px 0px rgba($btn-grad-1, 0.15);
+            }
+        }
+    }
+}
+
+// Content 
+
+.content {
+
+    margin: 2rem auto;
+    padding: 2rem;
+    max-width: 60rem;
+    grid-area: content;
+    justify-self: stretch;
+    align-self: stretch;
+    
+
+    @media screen and (min-width:600px) {
+        margin: 2rem;
+        padding: 0;
+        max-width: 1000px;
+    }
+
+    h1, h2 {
+        font-weight: 900;
+    }
+
+    h2 {
+        margin-top: 5rem;
+        text-shadow: 0 5px 5px rgba($text-color, 0.05);
+    }
+
+    // IMage
+    
+
+    #genres {
+        display: inline-block;
+        list-style: none;
+        margin-left: -3px;
+        
+        li {
+            display: inline-block;
+            border-radius: 50px;
+            background: $button-color;
+            width: fit-content;
+            padding: 5px 14px;
+            margin: 1rem 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            font-weight: 900;
+            color: white;
+            text-shadow: 0 2px 5px rgba(black, 0.5);
+        }
+    }
+
+    hr {
+        border: none;
+        border-top: 1px solid rgba($text-color, 0.05);
+        margin: 1rem;
+    }
+
+    ul {
+        list-style: none;
+        // backface-visibility: hidden;
+
+        li {
+            cursor: pointer;
+            font-size: 2.2rem;
+            padding: 2rem 5px;
+            font-weight: 900;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 100;
+
+            .sNo {
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+
+            .trackName {
+                font-weight: 900;
+                margin-right: 1rem;
+            }
+
+            .exp {
+                padding: 4px 8px;
+                border-radius: 20px;
+                font-weight: 300;
+                font-size: 1.2rem;
+                background: rgba(darken($text-color, 10%), 0.2%);
+                color: lighten($text-color, 80%);
+            }
+
+            .duration {
+                margin-left: auto;
+                margin-right: 1rem;
+            }
+
+            &:nth-child(odd) {
+                background: darken($background-color, 0.5%);
+                box-shadow: 10px 10px 40px rgba($text-color, 0.05);
+                border-radius: 5px;
+            }
+        
+            &:hover {
+                transform: scale(1.02);
+            }
+        }
+    }
+    
+}
+
+.hide {
+    display: none;
+}
+
+// Image
+#artist-img {
+    margin: auto;
+    margin-bottom: 3rem;
+    max-width: 640px;
+    max-height: 640px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 2rem 2rem 4rem -1rem rgba($text-color, 0.2);
+
+    @media screen and (min-width:700px){
+        max-width: 250px;
+        max-height: 250px;
+        margin: 0;
+        margin-bottom: 3rem;
+        box-shadow: 2rem 2rem 4rem 0rem rgba($text-color, 0.2);
+    }
+
+    img {
+        display: block;
+        width: 100%;
+        height: auto;        
+    }
+
+}

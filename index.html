@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Test</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+    <header>
+        <h1>Spotify API Practice</h1>
+        <p>Search for an artist, and get their top 5 tracks on Spotify.</p>
+    </header>
+    
+    <form>
+        <label for="artistName">Enter the name of the artist</label>
+        <input type="text" name="artistSearch" id="artistSearch" placeholder="Ex: The Weeknd">
+        <input type="submit" value="Search">
+    </form>
+
+    <div class="content">
+
+        <div id="artist-img">
+            <img src="https://i.scdn.co/image/d9a875c37277c35b94c60c00d2cd256db098505d" alt="Artist's image">
+        </div>
+
+        <div id="artist-info">
+            <h1 id="artistName">The Weeknd</h1>
+            <hr>
+            <p id="artistID">ID : 123456789</p>
+            <p>GENRES : </p>
+            <ul id="genres">
+                <li>Pop</li>
+                <li>Electro</li>
+            </ul>
+        </div>
+
+        <div id="artist-tracks">
+            <h2>Top Tracks : </h2>
+            <hr>
+            <ul>
+                <li>
+                    <span class="sNo">1</span>
+                    <span class="trackName">Song 1</span>
+                    <span class="exp">E</span>
+                    <span class="duration">2:30</span>
+                </li>
+                <li>
+                    <span class="sNo">2</span>
+                    <span class="trackName">Song 2</span>
+                    <span class="exp hide">E</span>
+                    <span class="duration">2:30</span>
+                </li>
+                <li>
+                    <span class="sNo">3</span>
+                    <span class="trackName">Song 3</span>
+                    <span class="exp">E</span>
+                    <span class="duration">2:30</span>
+                </li>
+                <li>
+                    <span class="sNo">4</span>
+                    <span class="trackName">Song 3</span>
+                    <span class="exp">E</span>
+                    <span class="duration">2:30</span>
+                </li>
+                <li>
+                    <span class="sNo">5</span>
+                    <span class="trackName">Song 3</span>
+                    <span class="exp">E</span>
+                    <span class="duration">2:30</span>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <script src="./js/app.js"></script>
+</body>
+</html>
