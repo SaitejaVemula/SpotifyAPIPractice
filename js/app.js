@@ -96,7 +96,6 @@ form.addEventListener("submit", (e) => {
     }
 
     form.reset();
-    artistSearch.focus();
 });
 
 // fetch() Functions
