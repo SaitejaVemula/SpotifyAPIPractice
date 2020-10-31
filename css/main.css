@@ -27,6 +27,12 @@ h4 {
   font-size: 1.4rem;
 }
 
+a, a:visited {
+  text-decoration: none;
+  color: #2D394D;
+  cursor: pointer;
+}
+
 body {
   background: #F4F8FF;
   color: #2D394D;
@@ -64,7 +70,7 @@ header h1 {
   margin-bottom: 1rem;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 700px) {
   header {
     -ms-flex-item-align: end;
         -ms-grid-row-align: end;
@@ -119,6 +125,10 @@ form {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
   grid-area: form;
+  -webkit-animation: fadeLeft 0.5s ease-out 0.5s forwards;
+          animation: fadeLeft 0.5s ease-out 0.5s forwards;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
 }
 
 @media screen and (min-width: 700px) {
@@ -218,13 +228,20 @@ form input[type=submit]:focus, form input[type=submit]:hover, form input[type=su
   -ms-flex-item-align: stretch;
       -ms-grid-row-align: stretch;
       align-self: stretch;
+  -webkit-animation: fadeLeft 0.5s ease-out 0.7s forwards;
+          animation: fadeLeft 0.5s ease-out 0.7s forwards;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
 }
 
 @media screen and (min-width: 600px) {
   .content {
     margin: 2rem;
     padding: 0;
-    max-width: 1000px;
+    max-width: 800px;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
   }
 }
 
@@ -237,13 +254,14 @@ form input[type=submit]:focus, form input[type=submit]:hover, form input[type=su
   text-shadow: 0 5px 5px rgba(45, 57, 77, 0.05);
 }
 
-.content #genres {
+.content #artist-genres {
   display: inline-block;
   list-style: none;
   margin-left: -3px;
 }
 
-.content #genres li {
+.content #artist-genres li {
+  cursor: default;
   display: inline-block;
   border-radius: 50px;
   background: -webkit-gradient(linear, left top, right bottom, from(#61f09c), to(#26c052));
@@ -309,6 +327,7 @@ form input[type=submit]:focus, form input[type=submit]:hover, form input[type=su
   font-size: 1.2rem;
   background: rgba(26, 33, 45, 0.2);
   color: white;
+  margin-right: 2rem;
 }
 
 .content ul li .duration {
@@ -330,6 +349,49 @@ form input[type=submit]:focus, form input[type=submit]:hover, form input[type=su
 
 .hide {
   display: none;
+  visibility: hidden;
+}
+
+.wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: stretch;
+      -ms-flex-pack: stretch;
+          justify-content: stretch;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+@media screen and (min-width: 1000px) {
+  .wrap {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: stretch;
+        -ms-flex-pack: stretch;
+            justify-content: stretch;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .wrap #artist-info {
+    margin-left: 2rem;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    margin-bottom: 2rem;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+  }
 }
 
 #artist-img {
@@ -358,5 +420,12 @@ form input[type=submit]:focus, form input[type=submit]:hover, form input[type=su
   display: block;
   width: 100%;
   height: auto;
+}
+
+.fadeFromLeft {
+  -webkit-animation: fadeLeft 0.5s ease-out 0s forwards;
+          animation: fadeLeft 0.5s ease-out 0s forwards;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
 }
 /*# sourceMappingURL=main.css.map */

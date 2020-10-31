@@ -24,6 +24,12 @@ h2    { font-size: 3rem; }
 h3, p, label { font-size: 1.8rem; }
 h4    { font-size: 1.4rem; }
 
+a, a:visited {
+    text-decoration: none;
+    color: $text-color;
+    cursor: pointer;
+}
+
 
 body {
     background: $background-color;
@@ -66,7 +72,8 @@ header {
         margin-bottom: 1rem;
     }
 
-    @media screen and (min-width: 600px){
+
+    @media screen and (min-width: 700px){
         align-self: end;
         justify-self: center;
         max-width: 500px;
@@ -98,6 +105,8 @@ form {
     max-width: 60rem;
     margin: 3rem auto;
     grid-area: form;
+    animation: fadeLeft 0.5s ease-out 0.5s forwards;
+    animation-fill-mode: both;
 
     @media screen and (min-width: 700px) {
         margin: 0;
@@ -175,12 +184,14 @@ form {
     grid-area: content;
     justify-self: stretch;
     align-self: stretch;
+    animation: fadeLeft 0.5s ease-out 0.7s forwards;
+    animation-fill-mode: both;
     
-
     @media screen and (min-width:600px) {
         margin: 2rem;
         padding: 0;
-        max-width: 1000px;
+        max-width: 800px;
+        align-self: center;
     }
 
     h1, h2 {
@@ -195,12 +206,13 @@ form {
     // IMage
     
 
-    #genres {
+    #artist-genres {
         display: inline-block;
         list-style: none;
         margin-left: -3px;
         
         li {
+            cursor: default;
             display: inline-block;
             border-radius: 50px;
             background: $button-color;
@@ -255,6 +267,7 @@ form {
                 font-size: 1.2rem;
                 background: rgba(darken($text-color, 10%), 0.2%);
                 color: lighten($text-color, 80%);
+                margin-right: 2rem;
             }
 
             .duration {
@@ -278,6 +291,27 @@ form {
 
 .hide {
     display: none;
+    visibility: hidden;
+}
+
+.wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+    flex-wrap: wrap;
+    @media screen and (min-width: 1000px) {
+        flex-direction: row;
+        justify-content: stretch;
+        align-items: center;
+
+        #artist-info {
+            margin-left: 2rem;
+            align-self: flex-end;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+    }
 }
 
 // Image
@@ -304,4 +338,9 @@ form {
         height: auto;        
     }
 
+}
+
+.fadeFromLeft {
+    animation: fadeLeft 0.5s ease-out 0s forwards;
+    animation-fill-mode: both;
 }
