@@ -96,6 +96,7 @@ form.addEventListener("submit", (e) => {
     }
 
     form.reset();
+    form.blur();
 });
 
 // fetch() Functions
