@@ -43,6 +43,7 @@ body {
   display: -ms-grid;
   display: grid;
       grid-template-areas: 'header' 'form' 'content';
+  position: relative;
 }
 
 @media screen and (min-width: 700px) {
@@ -234,7 +235,7 @@ form input[type=submit]:focus, form input[type=submit]:hover, form input[type=su
           animation-fill-mode: both;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 700px) {
   .content {
     margin: 2rem;
     padding: 0;
@@ -327,6 +328,20 @@ form input[type=submit]:focus, form input[type=submit]:hover, form input[type=su
   font-size: 1.2rem;
   background: rgba(26, 33, 45, 0.2);
   color: white;
+  margin-right: 1rem;
+}
+
+.content ul li .songURL {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 5px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-right: 2rem;
 }
 
@@ -357,9 +372,9 @@ form input[type=submit]:focus, form input[type=submit]:hover, form input[type=su
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
   -webkit-box-pack: stretch;
       -ms-flex-pack: stretch;
           justify-content: stretch;
@@ -368,6 +383,15 @@ form input[type=submit]:focus, form input[type=submit]:hover, form input[type=su
           align-items: stretch;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+}
+
+@media screen and (min-width: 700px) {
+  .wrap {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 @media screen and (min-width: 1000px) {
@@ -395,8 +419,7 @@ form input[type=submit]:focus, form input[type=submit]:hover, form input[type=su
 }
 
 #artist-img {
-  margin: auto;
-  margin-bottom: 3rem;
+  margin: 3rem auto;
   max-width: 640px;
   max-height: 640px;
   border-radius: 10px;
@@ -427,5 +450,79 @@ form input[type=submit]:focus, form input[type=submit]:hover, form input[type=su
           animation: fadeLeft 0.5s ease-out 0s forwards;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
+}
+
+.popup {
+  position: fixed;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  -webkit-animation: fadeIn 0.3s ease-out 0s forwards;
+          animation: fadeIn 0.3s ease-out 0s forwards;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+.popup .card {
+  background: #F4F8FF;
+  min-width: 250px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  padding: 3rem;
+  border-radius: 10px;
+  -webkit-box-shadow: 10px 10px 20px 5px rgba(45, 57, 77, 0.3), -10px -10px 20px 5px rgba(244, 248, 255, 0.9);
+          box-shadow: 10px 10px 20px 5px rgba(45, 57, 77, 0.3), -10px -10px 20px 5px rgba(244, 248, 255, 0.9);
+}
+
+.popup .close {
+  cursor: pointer;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 2rem;
+  background: #f55;
+  -webkit-box-shadow: 0 0 10px 5px rgba(255, 85, 85, 0.3);
+          box-shadow: 0 0 10px 5px rgba(255, 85, 85, 0.3);
+}
+
+.popup .close::after {
+  content: 'x';
+  font-weight: 900;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 /*# sourceMappingURL=main.css.map */
